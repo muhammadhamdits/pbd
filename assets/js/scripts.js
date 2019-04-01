@@ -279,6 +279,17 @@ $(document).ready(function () {
     }
   });
 
+  $("#repots").on("click", function (e) {
+    e.preventDefault();
+    $.ajax({
+      url: "data_report.php",
+      dataType: 'json',
+      success: function (data) {
+
+      }
+    });
+  });
+
 });
 
 function startTime() {

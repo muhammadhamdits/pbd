@@ -72,7 +72,7 @@ require_once("header.php");
       </div>
       <!--/ Stats -->
       <!--Product sale & buyers -->
-      <div class="row match-height">
+      <div class="row match-height hidden">
         <div class="col-xl-8 col-lg-12">
           <div class="card">
             <div class="card-header">

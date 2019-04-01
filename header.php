@@ -128,7 +128,7 @@
 <a id="r2" data-toggle="modal" href="#returLPG" hidden>Open Modal</a>
 <a id="jt2" data-toggle="modal" href="#jualTabung" hidden>Open Modal</a>
 <a id="jl2" data-toggle="modal" href="#jualGas" hidden>Open Modal</a>
-<a id="rpt2" data-toggle="modal" href="#tambahTabung" hidden>Open Modal</a>
+<a id="rpt2" data-toggle="modal" href="#inputReport" hidden>Open Modal</a>
 <button type="button" class="btn btn-lg btn-block btn-outline-success mb-2" id="type-success" hidden>Success</button>
 <button type="button" class="btn btn-lg btn-block btn-outline-success mb-2" id="type-success-2" hidden>Success</button>
 <button type="button" class="btn btn-lg btn-block btn-outline-success mb-2" id="type-success-3" hidden>Success</button>

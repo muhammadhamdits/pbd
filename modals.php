@@ -374,3 +374,58 @@
   </div>
 </div>
 <!-- END Retur LPG -->
+
+<!-- BEGIN Input Report -->
+<div class="modal modal-info fade text-left" id="inputReport" tabindex="-1" role="dialog" aria-labelledby="modal8" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="modal8">Cetak Report Penjualan</h3>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form id="ftt">
+          <div class="modal-body">
+            <label for="bulan">Bulan:</label>
+            <div class="form-group position-relative has-icon-left">
+              <select class="form-control" id="bulan" name="bulan">
+                <option value="null" selected disabled>Pilih bulan</option>
+                <option value="1">Januari</option>
+                <option value="2">Februari</option>
+                <option value="3">Maret</option>
+                <option value="4">April</option>
+                <option value="5">Mei</option>
+                <option value="6">Juni</option>
+                <option value="7">Juli</option>
+                <option value="8">Agustus</option>
+                <option value="9">September</option>
+                <option value="10">Oktober</option>
+                <option value="11">November</option>
+                <option value="12">Desember</option>
+              </select>
+              <div class="form-control-position">
+                <i class="ft-maximize-2 font-large-1 line-height-1 text-muted icon-align"></i>
+              </div>
+            </div>
+            <label for="tahun">Tahun:</label>
+            <div class="form-group position-relative has-icon-left">
+              <select class="form-control" id="tahun" name="tahun">
+                <option value="null" selected disabled>Pilih tahun</option>
+                <option value="2019">2019</option>
+              </select>
+              <div class="form-control-position">
+                <i class="ft-maximize-2 font-large-1 line-height-1 text-muted icon-align"></i>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="reset" class="btn btn-outline-danger btn-lg" data-dismiss="modal" value="close">Cancel</button>
+            <input type="hidden" name="repot" value="tambah">
+            <button type="submit" class="btn btn-outline-success btn-lg" value="submit" name="repots" id="repots">Cetak</button>
+          </div>
+        </form>
+      </div>
+    </div>
+</div>
+<!-- END Input Report -->
