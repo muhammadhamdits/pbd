@@ -231,9 +231,11 @@
                 require_once("config.php");
                 $datas = pg_query($conn, "SELECT * FROM pembeli");
                 while($data = pg_fetch_assoc($datas)){
+                  if($data['id'] != 'ownerPangkalan'){
                   ?>
                     <option value="<?= $data['id']; ?>"><?= $data['nama']; ?></option>
                   <?php
+                  }
                 }
               ?>
             </select>
@@ -270,7 +272,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form id="frg">
+      <form id="frg" method="post" action="insert.php">
         <div class="modal-body">
           <label for="sel7">Ukuran Tabung:</label>
           <div class="form-group position-relative has-icon-left">
@@ -335,9 +337,11 @@
                 require_once("config.php");
                 $datas = pg_query($conn, "SELECT * FROM pembeli");
                 while($data = pg_fetch_assoc($datas)){
+                  if($data['id'] != 'ownerPangkalan'){
                   ?>
                     <option value="<?= $data['id']; ?>"><?= $data['nama']; ?></option>
                   <?php
+                  }
                 }
               ?>
             </select>

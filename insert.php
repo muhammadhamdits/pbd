@@ -80,13 +80,19 @@ use Ramsey\Uuid\Exception\UnsatisfiedDependencyException;
       $ukuran = $gas1['ukuran'];
       $q2 = pg_query($conn, "SELECT * FROM tabung WHERE jenis='Berisi' AND ukuran='$ukuran'");
       $data2 = pg_fetch_assoc($q2);
+      $q3 = pg_query($conn, "SELECT * FROM tabung WHERE jenis='Retur' AND ukuran='$ukuran'");
+      $data3 = pg_fetch_assoc($q3);
+      $idretur=$data3['id'];
       $idisi = $data2['id'];
-      $saldoberisi = $data2['saldo'] + $jumlah;
-      // var_dump($gas);
+      $jr = $data3['saldo'];
+      $saldoberisi = $data2['saldo'] + $jumlah + $jr;
+      $s = $jumlah + $jr;
+      // var_dump($jumlah + $jr);
       // die();
+      pg_query($conn, "UPDATE tabung SET saldo=0 WHERE id='$idretur'");
       pg_query($conn, "UPDATE tabung SET saldo='$jk' WHERE id='$gas'");
       pg_query($conn, "UPDATE tabung SET saldo='$saldoberisi' WHERE id='$idisi'");
-      pg_query($conn, "INSERT INTO transaksi VALUES('$id', '-', '$tanggal', '$jumlah', '$jenis', '$gas')");
+      pg_query($conn, "INSERT INTO transaksi VALUES('$id', 'ownerPangkalan', '$tanggal', '$s', '$jenis', '$idisi')");
     }
   } else if(isset($_POST['returgas'])){
     

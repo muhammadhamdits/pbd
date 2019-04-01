@@ -60,6 +60,7 @@ require_once("config.php");
                           $i=1;
                           $datas = pg_query($conn, "SELECT * FROM public.pembeli");
                           while($data = pg_fetch_assoc($datas)){
+                            if($data['id']!='ownerPangkalan'){
                             ?>
                               <tr>
                                 <td><?= $i++; ?></td>
@@ -73,6 +74,7 @@ require_once("config.php");
                                 </td>
                               </tr>
                             <?php
+                            }
                           }
                         ?>
                       </tbody>
