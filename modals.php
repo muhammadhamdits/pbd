@@ -315,15 +315,15 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form id="frl">
+      <form id="frl" method="post" action="insert.php">
         <div class="modal-body">
           <label for="sel8">Ukuran Tabung:</label>
           <div class="form-group position-relative has-icon-left">
             <select class="form-control" id="sel8" name="ukuran">
               <option value="null" selected disabled>Pilih ukuran tabung</option>
-              <option value="2">3 Kg</option>
-              <option value="5">5.5 Kg</option>
-              <option value="8">12 Kg</option>
+              <option value="1">3 Kg</option>
+              <option value="4">5.5 Kg</option>
+              <option value="7">12 Kg</option>
             </select>
             <div class="form-control-position">
               <i class="ft-maximize-2 font-large-1 line-height-1 text-muted icon-align"></i>

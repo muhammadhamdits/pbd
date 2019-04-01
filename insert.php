@@ -95,5 +95,33 @@ use Ramsey\Uuid\Exception\UnsatisfiedDependencyException;
       pg_query($conn, "INSERT INTO transaksi VALUES('$id', 'ownerPangkalan', '$tanggal', '$s', '$jenis', '$idisi')");
     }
   } else if(isset($_POST['returgas'])){
-    
+    $id = Uuid::uuid4()->toString();
+    $tanggal = date("Y-m-d");
+    $jumlah = asign($conn, $_POST['jumlah']);
+    $jenis = 2;
+    $idgas = asign($conn, $_POST['ukuran']);
+    $pel = asign($conn, $_POST['plg']);
+    $tgltrans = asign($conn, $_POST['tanggal']);
+
+    $gb = pg_query($conn, "SELECT * FROM tabung WHERE id='$idgas'");
+    $gb1= pg_fetch_assoc($gb);
+    if($gb1['saldo'] < $jumlah){
+      echo "YES";
+    } else{
+      $trans = pg_query($conn, "SELECT * FROM transaksi WHERE pel='$pel' AND tanggal='$tgltrans' AND jumlah>='$jumlah' AND jenis=3 AND gas='$idgas'");
+      if(pg_fetch_assoc($trans)){
+        $ukuran = $gb1['ukuran'];
+        $gr = pg_query($conn, "SELECT * FROM tabung WHERE jenis='Retur' AND ukuran='$ukuran'");
+        $gr1= pg_fetch_assoc($gr);
+        $idr= $gr1['id'];
+        $jr = $jumlah + $gr1['saldo'];
+        $jb = $gb1['saldo'] - $jumlah;
+
+        pg_query($conn, "UPDATE tabung SET saldo='$jr' WHERE id='$idr'");
+        pg_query($conn, "UPDATE tabung SET saldo='$jb' WHERE id='$idgas'");
+        pg_query($conn, "INSERT INTO transaksi VALUES('$id', '$pel', '$tanggal', '$jumlah', '$jenis', '$idr')");
+      } else{
+        echo "YES";
+      }
+    }
   }
