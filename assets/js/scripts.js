@@ -23,7 +23,9 @@
 })(window);
 
 $(document).ready(function () {
-
+  chartGas3KG();
+  chartGas5KG();
+  chartGas12KG();
   $('#type-success').on('click', function () {
     swal("Success", "Tabung berhasil ditambahkan", "success");
   });
@@ -56,6 +58,7 @@ $(document).ready(function () {
           $("#ftt")[0].reset();
           $("#tambahTabung").modal("hide");
           $("#type-success").click();
+          reloadAll();
         }
       });
     }
@@ -77,6 +80,7 @@ $(document).ready(function () {
             $('#type-failed-1').click();
           } else {
             $("#type-success-2").click();
+            reloadAll();
           }
         }
       });
@@ -97,6 +101,7 @@ $(document).ready(function () {
           $("#ftdp")[0].reset();
           $("#tambahPelanggan").modal("hide");
           $("#type-success-3").click();
+          reloadAll();
         }
       });
     }
@@ -156,6 +161,22 @@ $(document).ready(function () {
     $("#pelanggans tbody").load("data_pelanggan.php");
   });
 
+  $("#r3kg").on("click", function () {
+    chartGas3KG();
+  });
+  $("#r5kg").on("click", function () {
+    chartGas5KG();
+  });
+  $("#r12kg").on("click", function () {
+    chartGas12KG();
+  });
+
+  function reloadAll() {
+    chartGas3KG();
+    chartGas5KG();
+    chartGas12KG();
+  }
+
   $(document).on("click", "#edtpel", function () {
     var id = $(this).data('id');
     var nama = $(this).data('nama');
@@ -201,6 +222,7 @@ $(document).ready(function () {
           $("#jualGas").modal("hide");
           if (data != "YES") {
             $("#type-success-5").click();
+            reloadAll();
           } else {
             $("#type-failed-1").click();
           }
@@ -223,6 +245,7 @@ $(document).ready(function () {
           $("#restockGas").modal("hide");
           if (data != "YES") {
             $("#type-success-5").click();
+            reloadAll();
           } else {
             $("#type-failed-1").click();
           }
@@ -247,6 +270,7 @@ $(document).ready(function () {
           $("#returLPG").modal("hide");
           if (data != "YES") {
             $("#type-success-5").click();
+            reloadAll();
           } else {
             $("#type-failed-1").click();
           }
@@ -273,4 +297,103 @@ function checkTime(i) {
     i = "0" + i
   }; // add zero in front of numbers < 10
   return i;
+}
+
+function chartGas3KG() {
+  $.ajax({
+    url: "data_dcharts.php",
+    dataType: 'json',
+    success: function (data) {
+      var dataLPG = $("#3kg");
+      var chartOptions = {
+        responsive: true,
+        maintainAspectRatio: false,
+        responsiveAnimationDuration: 500,
+      };
+      var chartData = {
+        labels: ["Berisi", "Kosong", "Retur"],
+        datasets: [{
+          label: "My First dataset",
+          data: [
+            data[0],
+            data[1],
+            data[2]
+          ],
+          backgroundColor: ['#00A5A8', '#626E82', '#FF7D4D'],
+        }]
+      };
+      var config = {
+        type: 'doughnut',
+        options: chartOptions,
+        data: chartData
+      };
+      var doughnutSimpleChart = new Chart(dataLPG, config);
+    }
+  });
+}
+
+function chartGas5KG() {
+  $.ajax({
+    url: "data_dcharts.php",
+    dataType: 'json',
+    success: function (data) {
+      var dataLPG = $("#5kg");
+      var chartOptions = {
+        responsive: true,
+        maintainAspectRatio: false,
+        responsiveAnimationDuration: 500,
+      };
+      var chartData = {
+        labels: ["Berisi", "Kosong", "Retur"],
+        datasets: [{
+          label: "My First dataset",
+          data: [
+            data[3],
+            data[4],
+            data[5]
+          ],
+          backgroundColor: ['#00A5A8', '#626E82', '#FF7D4D'],
+        }]
+      };
+      var config = {
+        type: 'doughnut',
+        options: chartOptions,
+        data: chartData
+      };
+      var doughnutSimpleChart = new Chart(dataLPG, config);
+    }
+  });
+}
+
+function chartGas12KG() {
+  $.ajax({
+    url: "data_dcharts.php",
+    dataType: 'json',
+    success: function (data) {
+      var dataLPG = $("#12kg");
+      var chartOptions = {
+        responsive: true,
+        maintainAspectRatio: false,
+        responsiveAnimationDuration: 500,
+      };
+      var chartData = {
+        labels: ["Berisi", "Kosong", "Retur"],
+        datasets: [{
+          label: "My First dataset",
+          data: [
+            data[6],
+            data[7],
+            data[8]
+          ],
+          backgroundColor: ['#00A5A8', '#626E82', '#FF7D4D'],
+        }]
+      };
+      var config = {
+        type: 'doughnut',
+        options: chartOptions,
+        data: chartData
+      };
+      var doughnutSimpleChart = new Chart(dataLPG, config);
+    }
+  });
 }

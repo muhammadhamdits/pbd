@@ -17,14 +17,14 @@ require_once("header.php");
               <div class="heading-elements">
                 <ul class="list-inline mb-0">
                   <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
-                  <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                  <li><a data-action="reload" id="r3kg"><i class="ft-rotate-cw"></i></a></li>
                   <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
                 </ul>
               </div>
             </div>
             <div class="card-content collapse show">
               <div class="card-body">
-                <canvas id="simple-doughnut-chart" height="400"></canvas>
+                <canvas id="3kg" height="400"></canvas>
               </div>
             </div>
           </div>
@@ -37,14 +37,14 @@ require_once("header.php");
               <div class="heading-elements">
                 <ul class="list-inline mb-0">
                   <li><a data-action="collapse"><i class="ft-minus"></i></a></li>                
-                  <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                  <li><a data-action="reload" id="r5kg"><i class="ft-rotate-cw"></i></a></li>
                   <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
                 </ul>
               </div>
             </div>
             <div class="card-content collapse show">
               <div class="card-body">
-                <canvas id="simple-doughnut-chart" height="400"></canvas>
+                <canvas id="5kg" height="400"></canvas>
               </div>
             </div>
           </div>
@@ -57,14 +57,14 @@ require_once("header.php");
               <div class="heading-elements">
                 <ul class="list-inline mb-0">
                   <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
-                  <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                  <li><a data-action="reload" id="r12kg"><i class="ft-rotate-cw"></i></a></li>
                   <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
                 </ul>
               </div>
             </div>
             <div class="card-content collapse show">
               <div class="card-body">
-                <canvas id="simple-doughnut-chart" height="400"></canvas>
+                <canvas id="12kg" height="400"></canvas>
               </div>
             </div>
           </div>

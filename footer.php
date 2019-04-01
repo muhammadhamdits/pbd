@@ -25,7 +25,6 @@
   <!-- END STACK JS-->
   <!-- BEGIN PAGE LEVEL JS-->
   <script src="app-assets/js/scripts/pages/dashboard-ecommerce.js" type="text/javascript"></script>
-  <script src="app-assets/js/scripts/charts/chartjs/pie-doughnut/doughnut-simple.js" type="text/javascript"></script>
   <script src="app-assets/js/scripts/modal/components-modal.js" type="text/javascript"></script>
   <!-- END PAGE LEVEL JS-->
   <!-- CUSTOM JS -->
