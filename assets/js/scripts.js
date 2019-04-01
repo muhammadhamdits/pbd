@@ -74,7 +74,7 @@ $(document).ready(function () {
           $("#fjt")[0].reset();
           $("#jualTabung").modal("hide");
           if (data == "YES") {
-
+            $('#type-failed-1').click();
           } else {
             $("#type-success-2").click();
           }
