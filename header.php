@@ -114,7 +114,7 @@
         </li>
       </ul>
     </li>
-    <li class=" nav-item"><a href="pembeli.php"><i class="ft-users"></i><span class="menu-item" data-i18n="">Pembeli</span></a>
+    <li class=" nav-item"><a href="pembeli.php" id="pembeli"><i class="ft-users"></i><span class="menu-item" data-i18n="">Pembeli</span></a>
       
     </li>
     <li class=" nav-item"><a id="rpt"><i class="fa fa-file-text"></i><span class="menu-item" data-i18n="">Report</span></a>
@@ -123,6 +123,7 @@
   </ul>
 </div>
 </div>
+<div id="mein">
 <a id="tt2" data-toggle="modal" href="#tambahTabung" hidden>Open Modal</a>
 <a id="rs2" data-toggle="modal" href="#restockGas" hidden>Open Modal</a>
 <a id="r2" data-toggle="modal" href="#returLPG" hidden>Open Modal</a>

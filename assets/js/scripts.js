@@ -285,9 +285,35 @@ $(document).ready(function () {
       url: "data_report.php",
       dataType: 'json',
       success: function (data) {
-
+        // console.log(data);
+        var pel = [];
+        // var k = 0;
+        // data.forEach(function (d) {
+        //   // console.log(d);
+        //   if (pel.includes(d['pel'])) {
+        //     var i = pel.indexOf(d['pel']);
+        //     var p = d['pel'];
+        //     var hm = d['tanggal'];
+        //     pel[i] = [p];
+        //     pel[i].push(hm);
+        //   } else {
+        //     var hm = d['pel'];
+        //     var i = pel.indexOf(d['pel']);
+        //     pel.push(hm);
+        //     pel[i] = [hm];
+        //     var hm = d['tanggal'];
+        //     pel[i].push(hm);
+        //   }
+        // });
+        console.log(pel);
       }
     });
+  });
+
+  $("#pembeli").on("click", function (e) {
+    e.preventDefault();
+    $("#mein").html("");
+    $("#mein").load("pembeli.php")
   });
 
 });
