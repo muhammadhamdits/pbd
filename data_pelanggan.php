@@ -3,6 +3,7 @@
   $i=1;
   $datas = pg_query($conn, "SELECT * FROM public.pembeli");
   while($data = pg_fetch_assoc($datas)){
+    if($data['id']!='ownerPangkalan'){
     ?>
       <tr>
         <td><?= $i++; ?></td>
@@ -16,5 +17,6 @@
         </td>
       </tr>
     <?php
+    }
   }
 ?>

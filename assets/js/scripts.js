@@ -310,11 +310,11 @@ $(document).ready(function () {
     });
   });
 
-  $("#pembeli").on("click", function (e) {
-    e.preventDefault();
-    $("#mein").html("");
-    $("#mein").load("pembeli.php")
-  });
+  // $("#pembeli").on("click", function (e) {
+  //   e.preventDefault();
+  //   $("#mein").html("");
+  //   $("#mein").load("pembeli.php")
+  // });
 
 });
 
