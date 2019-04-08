@@ -1,6 +1,7 @@
-<?php 
-  require_once("config.php");
-  $datas = pg_query($conn, "SELECT pembeli.nama, 
+<?php
+require_once("header.php");
+require_once("config.php");
+$datas = pg_query($conn, "SELECT pembeli.nama, 
   case when pembeli.jenis = 'Rumah Tangga' then 'v' end as k1,
   case when pembeli.jenis = 'Usaha Mikro' then 'v' end as k2,
   case when pembeli.jenis = 'Lainnya' then 'v' end as k3,
@@ -92,93 +93,139 @@
   // die();
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
-<body>
-  <div>
-  <table border="1" cellspacing=0 cellpadding="2">
-    <thead>
-      <tr>
-        <th colspan=7>Tanggal</th>
-        <?php
-          for($i=1;$i<=31;$i++){ 
-        ?>
-        <th><?= $i; ?></th>
-        <?php
-          }
-        ?>
-      </tr>
-      <tr>
-        <th colspan=7>Stok Awal</th>
-        <?php
-          for($i=1;$i<=31;$i++){ 
-        ?>
-        <th><?php 
-          $total = 0;
-          foreach($d as $data){
-            if(isset($data['h'.($i-1)])){
-              $total += $data['h'.($i-1)];
-            }
-          }
-          $masuk = 0;
-          if(isset($p[0]['h'.($i-1)])){
-            $masuk = $p[0]['h'.($i-1)];
-          }
-          $stok += $masuk;
-          $stok -=$total;
-          echo $stok; 
-        ?></th>
-        <?php
-          }
-        ?>
-      </tr>
-      <tr>
-        <th colspan=7>Penerimaan</th>
-        <?php
-          for($i=1;$i<=31;$i++){ 
-        ?>
-        <th><?php 
-          $masuk = 0;
-          $masuk += $p[0]['h'.$i];
-          echo $masuk;
-        ?></th>
-        <?php
-          }
-        ?>
-      </tr>
-      <tr>
-        <th>No</th>
-        <th>Nama Pembeli</th>
-        <th>RT</th>
-        <th>UM</th>
-        <th>Lain</th>
-        <th>Alamat Pembeli</th>
-        <th>Keterangan</th>
-        <th colspan=31></th>
-      </tr>
-    </thead>
-    <tbody>
-        <?php $k=1; foreach($d as $data){ ?>
-          <tr>
-            <td><?= $k++; ?></td>
-            <td><?= $data['nama']; ?></td>
-            <td><?= $data['k1']; ?></td>
-            <td><?= $data['k2']; ?></td>
-            <td><?= $data['k3']; ?></td>
-            <td><?= $data['alamat']; ?></td>
-            <td><?= $data['keperluan']; ?></td>
-          <?php for($i=1;$i<=31;$i++){ ?>
-              <td><?= $data['h'.$i]; ?></td>
-          <?php } ?>
-          </tr>
-        <?php } ?>
-    </tbody>
-  </table>
-</body>
-</html>
+<div class="app-content content">
+    <div class="content-wrapper">
+      <div class="content-header row">
+        <div class="content-header-left col-md-6 col-12 mb-2">
+          <h3 class="content-header-title mb-0">Daftar Pelanggan</h3>
+          <div class="row breadcrumbs-top">
+            <div class="breadcrumb-wrapper col-12">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item active">Pangkalan LPG 
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+        <div class="content-header-right col-md-6 col-12">
+          <div class="btn-group float-md-right" role="group" aria-label="Button group with nested dropdown">
+            <div class="btn-group" role="group">
+              <button class="btn btn-outline-primary" id="tdp" type="button" data-toggle="modal" aria-haspopup="true" aria-expanded="false" data-target="#tambahPelanggan"><i class="ft-user-plus"></i> Tambah data</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="content-body">
+        <!-- Zero configuration table -->
+        <section id="configuration">
+          <div class="row">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-header">
+                  <h4 class="card-title">Daftar pelanggan LPG</h4>
+                  <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
+                  <div class="heading-elements">
+                    <ul class="list-inline mb-0">
+                      <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                      <li><a data-action="reload" id="reload2"><i class="ft-rotate-cw"></i></a></li>
+                      <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="card-content collapse show">
+                  <div class="card-body card-dashboard">
+                    <section class="table-responsive">
+                      <table class="table table-sm table-striped table-bordered zero-configuration" id="hm35">
+                        <thead>
+                          <tr>
+                            <th colspan=7>Tanggal</th>
+                            <?php
+                              for($i=1;$i<=31;$i++){ 
+                            ?>
+                            <th><?= $i; ?></th>
+                            <?php
+                              }
+                            ?>
+                          </tr>
+                          <tr>
+                            <th colspan=7>Stok Awal</th>
+                            <?php
+                              for($i=1;$i<=31;$i++){ 
+                            ?>
+                            <th><?php 
+                              $total = 0;
+                              foreach($d as $data){
+                                if(isset($data['h'.($i-1)])){
+                                  $total += $data['h'.($i-1)];
+                                }
+                              }
+                              $masuk = 0;
+                              if(isset($p[0]['h'.($i-1)])){
+                                $masuk = $p[0]['h'.($i-1)];
+                              }
+                              $stok += $masuk;
+                              $stok -=$total;
+                              echo $stok; 
+                            ?></th>
+                            <?php
+                              }
+                            ?>
+                          </tr>
+                          <tr>
+                            <th colspan=7>Penerimaan</th>
+                            <?php
+                              for($i=1;$i<=31;$i++){ 
+                            ?>
+                            <th><?php 
+                              $masuk = 0;
+                              $masuk += $p[0]['h'.$i];
+                              echo $masuk;
+                            ?></th>
+                            <?php
+                              }
+                            ?>
+                          </tr>
+                          <tr>
+                            <th>No</th>
+                            <th>Nama Pembeli</th>
+                            <th>RT</th>
+                            <th>UM</th>
+                            <th>Lain</th>
+                            <th>Alamat Pembeli</th>
+                            <th>Keterangan</th>
+                            <th colspan=31></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <?php $k=1; foreach($d as $data){ ?>
+                              <tr>
+                                <td><?= $k++; ?></td>
+                                <td><?= $data['nama']; ?></td>
+                                <td><?= $data['k1']; ?></td>
+                                <td><?= $data['k2']; ?></td>
+                                <td><?= $data['k3']; ?></td>
+                                <td><?= $data['alamat']; ?></td>
+                                <td><?= $data['keperluan']; ?></td>
+                              <?php for($i=1;$i<=31;$i++){ ?>
+                                  <td><?= $data['h'.$i]; ?></td>
+                              <?php } ?>
+                              </tr>
+                            <?php } ?>
+                        </tbody>
+                        <tfoot></tfoot>
+                      </table>
+                    </section>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!--/ Zero configuration table -->  
+      </div>
+    </div>
+  </div>
+
+  <?php
+require_once("footer.php");
+?>

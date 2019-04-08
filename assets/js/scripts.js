@@ -155,6 +155,9 @@ $(document).ready(function () {
   });
 
   var tabels = $("#pelanggans").DataTable();
+  $("#hm35").DataTable({
+    dom: "Bfrtip"
+  });
   $("#reload2").on("click", function () {
     // tabels.ajax.reload();
     $("#pelanggans tbody").html("");
