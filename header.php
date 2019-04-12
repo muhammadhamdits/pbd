@@ -94,23 +94,15 @@
     </li>
     <li class=" nav-item"><a href=""><i class="fa fa-exchange"></i><span class="menu-title" data-i18n="">Transaksi</span></a>
       <ul class="menu-content">
-        <li><a class="menu-item" href=""><i class="ft-log-in"></i>Masuk</a>
-          <ul class="menu-content">
-            <li><a id="tt" class="menu-item"><i class="ft-plus"></i>Tambah Tabung</a>
-            </li>
-            <li><a id="rs"><i class="ft-download"></i>Restock LPG</a>
-            </li>
-            <li><a id="r"><i class="ft-corner-down-left"></i>Retur LPG</a>
-            </li>
-          </ul>
+        <li><a id="tt" class="menu-item"><i class="ft-plus"></i>Tambah Tabung</a>
         </li>
-        <li><a class="menu-item" href=""><i class="ft-log-out"></i>Keluar</a>
-          <ul class="menu-content">
-            <li><a id="jt" class="menu-item"><i class="ft-minus"></i>Jual Tabung</a>
-            </li>
-            <li><a id="jl" class="menu-item"><i class="ft-share"></i>Jual LPG</a>
-            </li>
-          </ul>
+        <li><a id="rs"><i class="ft-download"></i>Restock LPG</a>
+        </li>
+        <li><a id="r"><i class="ft-corner-down-left"></i>Retur LPG</a>
+        </li>
+        <li><a id="jt" class="menu-item"><i class="ft-minus"></i>Jual Tabung</a>
+        </li>
+        <li><a id="jl" class="menu-item"><i class="ft-share"></i>Jual LPG</a>
         </li>
       </ul>
     </li>
