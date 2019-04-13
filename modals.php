@@ -385,7 +385,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form id="ftt">
+        <form id="frb">
           <div class="modal-body">
             <label for="bulan">Bulan:</label>
             <div class="form-group position-relative has-icon-left">

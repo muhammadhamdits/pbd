@@ -286,9 +286,12 @@ $(document).ready(function () {
     e.preventDefault();
     $.ajax({
       url: "data_report.php",
-      dataType: 'json',
+      method: "POST",
+      data: $("#frb").serialize(),
       success: function (data) {
-
+        $("#frb")[0].reset();
+        $("#inputReport").modal("hide");
+        console.log(data);
       }
     });
   });
