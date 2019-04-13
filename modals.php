@@ -418,6 +418,18 @@
                 <i class="ft-maximize-2 font-large-1 line-height-1 text-muted icon-align"></i>
               </div>
             </div>
+            <label for="ukuran">Ukuran:</label>
+            <div class="form-group position-relative has-icon-left">
+              <select class="form-control" id="ukuran" name="ukuran">
+                <option value="null" selected disabled>Pilih ukuran lpg</option>
+                <option value="1">3 kg</option>
+                <option value="4">5.5 kg</option>
+                <option value="7">12 kg</option>
+              </select>
+              <div class="form-control-position">
+                <i class="ft-maximize-2 font-large-1 line-height-1 text-muted icon-align"></i>
+              </div>
+            </div>
           </div>
           <div class="modal-footer">
             <button type="reset" class="btn btn-outline-danger btn-lg" data-dismiss="modal" value="close">Cancel</button>
