@@ -26,7 +26,6 @@ require_once("config.php");
         </div>
       </div>
       <div class="content-body">
-        <!-- Zero configuration table -->
         <section id="configuration">
           <div class="row">
             <div class="col-12">
@@ -69,7 +68,6 @@ require_once("config.php");
             </div>
           </div>
         </section>
-        <!--/ Zero configuration table -->  
       </div>
     </div>
   </div>

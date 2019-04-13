@@ -2,14 +2,8 @@
   require_once("config.php");
   require_once("vendor/autoload.php");
 
-  use Spipu\Html2Pdf\Html2Pdf;
-    
-  use Spipu\Html2Pdf\Exception\Html2PdfException;
-  use Spipu\Html2Pdf\Exception\ExceptionFormatter;
-  // $html2pdf = new Html2Pdf();
   $mpdf = new \Mpdf\Mpdf(['orientation' => 'L']);
 
-  // try{
   $bulan = $_GET['bulan'];
   $tahun = $_GET['tahun'];
   $gas   = $_GET['ukuran'];
@@ -186,19 +180,7 @@
         $konten.="    </tbody>
         </table>
         </page>";
-        // echo $konten;
-        // die();
+
         $mpdf->WriteHTML($konten);
         $mpdf->Output();
-//         $html2pdf = new Html2Pdf('L', 'A4', 'fr');
-//         $html2pdf->setDefaultFont('Arial');
-//         $html2pdf->setTestTdInOnePage(false);
-//         $html2pdf->writeHTML($konten);
-//         $html2pdf->output('Barang.pdf');
-
-// } catch (Html2PdfException $e){
-//   $html2pdf->clean();
-//   $formatter = new ExceptionFormatter($e);
-//   echo $formatter->getHtmlMessage();
-// }
 ?>

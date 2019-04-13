@@ -87,8 +87,6 @@ use Ramsey\Uuid\Exception\UnsatisfiedDependencyException;
       $jr = $data3['saldo'];
       $saldoberisi = $data2['saldo'] + $jumlah + $jr;
       $s = $jumlah + $jr;
-      // var_dump($jumlah + $jr);
-      // die();
       pg_query($conn, "UPDATE tabung SET saldo=0 WHERE id='$idretur'");
       pg_query($conn, "UPDATE tabung SET saldo='$jk' WHERE id='$gas'");
       pg_query($conn, "UPDATE tabung SET saldo='$saldoberisi' WHERE id='$idisi'");
