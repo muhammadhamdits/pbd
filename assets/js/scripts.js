@@ -286,21 +286,22 @@ $(document).ready(function () {
     e.preventDefault();
     $.ajax({
       url: "data_report.php",
-      method: "POST",
+      method: "GET",
       data: $("#frb").serialize(),
       success: function (data) {
+        var bln = $("#bulan").val();
+        var thn = $("#tahun").val();
+        var ukur = $("#ukuran").val();
         $("#frb")[0].reset();
         $("#inputReport").modal("hide");
-        console.log(data);
+        window.open("data_report.php?bulan=" + bln + "&&tahun=" + thn + "&&ukuran=" + ukur);
+        // var w = window.open();
+        // $(w.document.body).html(data);
+        // console.log(data);
+        // window.open("data_report.php");
       }
     });
   });
-
-  // $("#pembeli").on("click", function (e) {
-  //   e.preventDefault();
-  //   $("#mein").html("");
-  //   $("#mein").load("pembeli.php")
-  // });
 
 });
 
