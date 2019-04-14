@@ -26,29 +26,11 @@ $(document).ready(function () {
   chartGas3KG();
   chartGas5KG();
   chartGas12KG();
-  $('#type-success').on('click', function () {
-    swal("Success", "Tabung berhasil ditambahkan", "success");
-  });
-  $('#type-success-2').on('click', function () {
-    swal("Success", "Tabung berhasil dijual", "success");
-  });
-  $('#type-success-3').on('click', function () {
-    swal("Success", "Data pelanggan berhasil ditambahkan", "success");
-  });
-  $('#type-success-4').on('click', function () {
-    swal("Success", "Data pelanggan berhasil diperbaharui", "success");
-  });
-  $('#type-success-5').on('click', function () {
-    swal("Success", "LPG Berhasil dijual", "success");
-  });
-  $('#type-failed-1').on('click', function () {
-    swal("Failed", "Jumlah yang diambil melebihi stok yang tersedia", "error");
-  });
 
   $("#tambah").on("click", function (event) {
     event.preventDefault();
-    if ($("#sel1").val() == null) {
-      swal("Error", "Lengkapi data!", "warning");
+    if ($("#sel1").val() == null || $("#jmls").val() < 0) {
+      swal("Error", "Data belum lengkap/belum valid!", "warning");
     } else {
       $.ajax({
         url: "insert.php",
@@ -57,8 +39,12 @@ $(document).ready(function () {
         success: function (data) {
           $("#ftt")[0].reset();
           $("#tambahTabung").modal("hide");
-          $("#type-success").click();
-          reloadAll();
+          if (data == "YES") {
+            swal("Failed", "Tabung gagal ditambahkan!", "error");
+          } else {
+            swal("Success", "Tabung berhasil ditambahkan!", "success");
+            reloadAll();
+          }
         }
       });
     }
@@ -77,9 +63,9 @@ $(document).ready(function () {
           $("#fjt")[0].reset();
           $("#jualTabung").modal("hide");
           if (data == "YES") {
-            $('#type-failed-1').click();
+            swal("Failed", "Jumlah yang diambil melebihi stok yang tersedia", "error");
           } else {
-            $("#type-success-2").click();
+            swal("Success", "Tabung berhasil dijual!", "success");
             reloadAll();
           }
         }
@@ -100,7 +86,7 @@ $(document).ready(function () {
           $("#reload2").click();
           $("#ftdp")[0].reset();
           $("#tambahPelanggan").modal("hide");
-          $("#type-success-3").click();
+          swal("Success", "Data pelanggan berhasil ditambahkan!", "success");
           reloadAll();
         }
       });
@@ -126,7 +112,7 @@ $(document).ready(function () {
           text: "Yes, hapus data ini!",
           value: true,
           visible: true,
-          className: "",
+          className: "btn-primary",
           closeModal: false
         }
       }
@@ -159,7 +145,6 @@ $(document).ready(function () {
     dom: "Bfrtip"
   });
   $("#reload2").on("click", function () {
-    // tabels.ajax.reload();
     $("#pelanggans tbody").html("");
     $("#pelanggans tbody").load("data_pelanggan.php");
   });
@@ -203,7 +188,7 @@ $(document).ready(function () {
           $("#reload2").click();
           $("#fedp")[0].reset();
           $("#editPelanggan").modal("hide");
-          $("#type-success-4").click();
+          swal("Success", "Berhasil memperbaharui data pelanggan!", "success");
         }
       });
     }));
@@ -211,9 +196,7 @@ $(document).ready(function () {
 
   $("#juallpg").on("click", function (event) {
     event.preventDefault();
-    if ($("#sel5").val() == null) {
-      swal("Error", "Lengkapi data!", "warning");
-    } else if ($("#sel6").val() == null) {
+    if ($("#sel5").val() == null || $("#sel6").val() == null) {
       swal("Error", "Lengkapi data!", "warning");
     } else {
       $.ajax({
@@ -224,10 +207,10 @@ $(document).ready(function () {
           $("#fjg")[0].reset();
           $("#jualGas").modal("hide");
           if (data != "YES") {
-            $("#type-success-5").click();
+            swal("Success", "Berhasil menjual LPG!", "success");
             reloadAll();
           } else {
-            $("#type-failed-1").click();
+            swal("Failed", "Gagal menjual LPG", "error");
           }
         }
       });
@@ -236,8 +219,8 @@ $(document).ready(function () {
 
   $("#rsg").on("click", function (event) {
     event.preventDefault();
-    if ($("#sel7").val() == null) {
-      swal("Error", "Lengkapi data!", "warning");
+    if ($("#sel7").val() == null || $("#jml4").val() < 0) {
+      swal("Error", "Data belum lengkap/belum valid!", "warning");
     } else {
       $.ajax({
         url: "insert.php",
@@ -247,10 +230,10 @@ $(document).ready(function () {
           $("#frg")[0].reset();
           $("#restockGas").modal("hide");
           if (data != "YES") {
-            $("#type-success-5").click();
+            swal("Success", "Berhasil merestock LPG", "success");
             reloadAll();
           } else {
-            $("#type-failed-1").click();
+            swal("Failed", "Gagal merestock LPG, jumlah yang anda minta melebihi jumlah yang dapat di restock!", "error");
           }
         }
       });
@@ -259,10 +242,8 @@ $(document).ready(function () {
 
   $("#rtg").on("click", function (event) {
     event.preventDefault();
-    if ($("#sel8").val() == null) {
-      swal("Error", "Lengkapi data!", "warning");
-    } else if ($("#sel9").val() == null) {
-      swal("Error", "Lengkapi data!", "warning");
+    if ($("#sel8").val() == null || $("#sel9").val() == null || $("#jml5").val() <= 0) {
+      swal("Error", "Data belum lengkap/belum valid!", "warning");
     } else {
       $.ajax({
         url: "insert.php",
@@ -272,10 +253,10 @@ $(document).ready(function () {
           $("#frl")[0].reset();
           $("#returLPG").modal("hide");
           if (data != "YES") {
-            $("#type-success-5").click();
+            swal("Success", "Berhasil meretur LPG!", "success");
             reloadAll();
           } else {
-            $("#type-failed-1").click();
+            swal("Failed", "Gagal merestock LPG, data transaksi tidak ditemukan atau jumlah yang akan diretur melebihi jumlah yang telah ditransaksikan", "error");
           }
         }
       });

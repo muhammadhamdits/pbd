@@ -20,7 +20,7 @@ require_once("config.php");
         <div class="content-header-right col-md-6 col-12">
           <div class="btn-group float-md-right" role="group" aria-label="Button group with nested dropdown">
             <div class="btn-group" role="group">
-              <button class="btn btn-outline-primary" id="tdp" type="button" data-toggle="modal" aria-haspopup="true" aria-expanded="false" data-target="#tambahPelanggan"><i class="ft-user-plus"></i> Tambah data</button>
+              <button class="btn btn-outline-primary" id="tdp" type="button" data-toggle="modal" aria-haspopup="true" aria-expanded="false" data-target="#tambahPelanggan"><i class="fa fa-user-plus"></i> Tambah data</button>
             </div>
           </div>
         </div>

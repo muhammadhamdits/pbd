@@ -90,23 +90,18 @@
       <span>General</span><i class=" ft-minus" data-toggle="tooltip" data-placement="right"
       data-original-title="General"></i>
     </li>
-    <li class=" nav-item"><a href="index.php"><i class="ft-home"></i><span class="menu-item" data-i18n="">Dashboard</span></a>
+    <li class=" nav-item"><a href="index.php"><i class="fa fa-home"></i><span class="menu-item" data-i18n="">Dashboard</span></a>
     </li>
     <li class=" nav-item"><a href=""><i class="fa fa-exchange"></i><span class="menu-title" data-i18n="">Transaksi</span></a>
       <ul class="menu-content">
-        <li><a id="tt" class="menu-item"><i class="ft-plus"></i>Tambah Tabung</a>
-        </li>
-        <li><a id="rs"><i class="ft-download"></i>Restock LPG</a>
-        </li>
-        <li><a id="r"><i class="ft-corner-down-left"></i>Retur LPG</a>
-        </li>
-        <li><a id="jt" class="menu-item"><i class="ft-minus"></i>Jual Tabung</a>
-        </li>
-        <li><a id="jl" class="menu-item"><i class="ft-share"></i>Jual LPG</a>
-        </li>
+        <li><a id="tt" class="menu-item"><i class="fa fa-plus"></i>Tambah Tabung</a></li>
+        <li><a id="rs" class="menu-item"><i class="fa fa-download"></i>Restock LPG</a></li>
+        <li><a id="r"  class="menu-item"><i class="fa fa-level-down"></i>Retur LPG</a></li>
+        <li><a id="jt" class="menu-item"><i class="fa fa-minus"></i>Jual Tabung</a></li>
+        <li><a id="jl" class="menu-item"><i class="fa fa-upload"></i>Jual LPG</a></li>
       </ul>
     </li>
-    <li class=" nav-item"><a href="pembeli.php" id="pembeli"><i class="ft-users"></i><span class="menu-item" data-i18n="">Pembeli</span></a>
+    <li class=" nav-item"><a href="pembeli.php" id="pembeli"><i class="fa fa-users"></i><span class="menu-item" data-i18n="">Pembeli</span></a>
       
     </li>
     <li class=" nav-item"><a id="rpt"><i class="fa fa-file-text"></i><span class="menu-item" data-i18n="">Report</span></a>

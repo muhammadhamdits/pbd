@@ -12,7 +12,10 @@ use Ramsey\Uuid\Exception\UnsatisfiedDependencyException;
     $data = pg_fetch_assoc($query1);
     $jumlah = $jumlah + $data['saldo'];
     $id = $data['id'];
-    pg_query($conn, "UPDATE tabung SET saldo='$jumlah' WHERE id='$id'");
+    $q = pg_query($conn, "UPDATE tabung SET saldo='$jumlah' WHERE id='$id'");
+    if(pg_affected_rows($q)<=0){
+      return "YES";
+    }
   } else if(isset($_POST['jual1'])){
     $ukuran = asign($conn, $_POST["ukuran"]);
     $jumlah = asign($conn, $_POST["jumlah"]);
@@ -23,7 +26,10 @@ use Ramsey\Uuid\Exception\UnsatisfiedDependencyException;
     } else{
       $jumlah = $data['saldo'] - $jumlah;
       $id = $data['id'];
-      pg_query($conn, "UPDATE tabung SET saldo='$jumlah' WHERE id='$id'");
+      $q = pg_query($conn, "UPDATE tabung SET saldo='$jumlah' WHERE id='$id'");
+      if(pg_affected_rows($q)==0){
+        echo "YES";
+      }
     }
   } else if(isset($_POST['tambahpel'])){
     $uuid = Uuid::uuid4()->toString();
