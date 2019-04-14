@@ -30,7 +30,7 @@ $(document).ready(function () {
   $("#tambah").on("click", function (event) {
     event.preventDefault();
     if ($("#sel1").val() == null || $("#jmls").val() < 0) {
-      swal("Error", "Data belum lengkap/belum valid!", "warning");
+      swal("Error", "Data belum lengkap/tidak valid!", "warning");
     } else {
       $.ajax({
         url: "insert.php",
@@ -39,8 +39,8 @@ $(document).ready(function () {
         success: function (data) {
           $("#ftt")[0].reset();
           $("#tambahTabung").modal("hide");
-          if (data == "YES") {
-            swal("Failed", "Tabung gagal ditambahkan!", "error");
+          if (data != null) {
+            swal("Error", "Tabung gagal ditambahkan!", "error");
           } else {
             swal("Success", "Tabung berhasil ditambahkan!", "success");
             reloadAll();
@@ -62,8 +62,8 @@ $(document).ready(function () {
         success: function (data) {
           $("#fjt")[0].reset();
           $("#jualTabung").modal("hide");
-          if (data == "YES") {
-            swal("Failed", "Jumlah yang diambil melebihi stok yang tersedia", "error");
+          if (data != null) {
+            swal("Failed", "Jumlah yang diambil melebihi stok yang tersedia/inputan tidak valid", "error");
           } else {
             swal("Success", "Tabung berhasil dijual!", "success");
             reloadAll();
@@ -206,7 +206,7 @@ $(document).ready(function () {
         success: function (data) {
           $("#fjg")[0].reset();
           $("#jualGas").modal("hide");
-          if (data != "YES") {
+          if (data == "") {
             swal("Success", "Berhasil menjual LPG!", "success");
             reloadAll();
           } else {
@@ -220,7 +220,7 @@ $(document).ready(function () {
   $("#rsg").on("click", function (event) {
     event.preventDefault();
     if ($("#sel7").val() == null || $("#jml4").val() < 0) {
-      swal("Error", "Data belum lengkap/belum valid!", "warning");
+      swal("Error", "Data belum lengkap/tidak valid!", "warning");
     } else {
       $.ajax({
         url: "insert.php",
@@ -229,11 +229,14 @@ $(document).ready(function () {
         success: function (data) {
           $("#frg")[0].reset();
           $("#restockGas").modal("hide");
-          if (data != "YES") {
+          if (data == "") {
             swal("Success", "Berhasil merestock LPG", "success");
             reloadAll();
-          } else {
+          } else if (data == "YES") {
             swal("Failed", "Gagal merestock LPG, jumlah yang anda minta melebihi jumlah yang dapat di restock!", "error");
+          } else {
+            swal("Failed", "Gagal merestock LPG, inputan tidak valid!", "error");
+
           }
         }
       });
@@ -243,7 +246,7 @@ $(document).ready(function () {
   $("#rtg").on("click", function (event) {
     event.preventDefault();
     if ($("#sel8").val() == null || $("#sel9").val() == null || $("#jml5").val() <= 0) {
-      swal("Error", "Data belum lengkap/belum valid!", "warning");
+      swal("Error", "Data belum lengkap/tidak valid!", "warning");
     } else {
       $.ajax({
         url: "insert.php",
@@ -252,6 +255,7 @@ $(document).ready(function () {
         success: function (data) {
           $("#frl")[0].reset();
           $("#returLPG").modal("hide");
+          console.log(data);
           if (data != "YES") {
             swal("Success", "Berhasil meretur LPG!", "success");
             reloadAll();

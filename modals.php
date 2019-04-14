@@ -8,7 +8,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form id="ftt">
+        <form id="ftt" action="insert.php" method="post">
           <div class="modal-body">
             <label for="sel1">Ukuran Tabung:</label>
             <div class="form-group position-relative has-icon-left">
@@ -24,7 +24,7 @@
             </div>
             <label for="jmls">Jumlah: </label>
             <div class="form-group position-relative has-icon-left">
-              <input type="number" class="form-control" placeholder="Masukkan jumlah tabung" value="" name="jumlah" id="jmls" min=1>
+              <input type="number" class="form-control" placeholder="Masukkan jumlah tabung" name="jumlah" id="jmls" min=1>
               <div class="form-control-position">
                 <i class="fa fa-balance-scale font-medium-4 icon-align"></i>
               </div>
