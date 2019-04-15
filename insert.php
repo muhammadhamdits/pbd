@@ -87,7 +87,7 @@ use Ramsey\Uuid\Exception\UnsatisfiedDependencyException;
       pg_query($conn, "UPDATE tabung SET saldo=0 WHERE id='$idretur'");
       pg_query($conn, "UPDATE tabung SET saldo='$jk' WHERE id='$gas'");
       pg_query($conn, "UPDATE tabung SET saldo='$saldoberisi' WHERE id='$idisi'");
-      pg_query($conn, "INSERT INTO transaksi VALUES('$id', 'ownerPangkalan', '$tanggal', '$s', '$jenis', '$idisi')");
+      pg_query($conn, "INSERT INTO transaksi VALUES('$id', 'ownerPangkalan', '$tanggal', '$jumlah', '$jenis', '$idisi')");
     }
   } else if(isset($_POST['returgas'])){
     $id       = Uuid::uuid4()->toString();
